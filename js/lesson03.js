@@ -4,12 +4,16 @@ const weekRu = 'Понедельник, вторник, среда, четвер
     weekEn = 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday',
     namePerson = 'Артем',
     arrWeek = new Map([
-        ['ru', ['Понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']],
-        ['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']],
+        ['ru', weekRu],
+        ['en', weekEn],
     ])
 ;
 
 let lang = prompt('На каком языке вывести дни недели? ru-en');
+while (lang !== 'ru' && lang !== 'en' ) {
+    lang = prompt("Вы ошиблись. Введите ru или en. На каком языке вывести дни недели?");
+}
+
 console.log ('решение через if');
 if (lang === 'ru') {
     console.log (weekRu);
