@@ -1,4 +1,3 @@
-
 let num = 266219;
 let newNum = String(num).split('');
 let mult = newNum.reduce(function(previousValue, item) { 
