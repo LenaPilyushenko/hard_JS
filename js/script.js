@@ -22,7 +22,7 @@ function play(attempts) {
  
     if (attempts < 1) {
         if (confirm ('Попытки закончились, хотите сыграть еще?')) {
-            play(10);
+            play(3);
         } else {
             playOver();
         }
@@ -40,17 +40,36 @@ function play(attempts) {
         alert('Введи число!');
         play();
     } if (userNumber < test) {
-        alert('Загаданное число больше');
         x--;
-        //console.log ('Загаданное число больше', x);
-        play(x);
+        if (x > 0) {
+            alert('Загаданное число больше , осталось ' + x + " попыток");
+            //console.log ('Загаданное число больше', x);
+            play(x);
+        }
+        else {
+            if (confirm ('Попытки закончились, хотите сыграть еще?')) {
+                play(3);
+            } else {
+                playOver();
+            }
+            return;
+        }
     } else {
-        alert('Загаданное число меньше');
         x--;
-        //console.log ('Загаданное число меньше', x);
-        play(x);
+        if (x > 0) {
+            alert('Загаданное число меньше, осталось ' + x + " попыток");
+            //console.log ('Загаданное число меньше', x);
+            play(x);
+        } else {
+            if (confirm ('Попытки закончились, хотите сыграть еще?')) {
+                play(3);
+            } else {
+                playOver();
+            }
+            return;
+        }
     }    
     
 } 
    
-play(10);
+play(3);
