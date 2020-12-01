@@ -2,6 +2,9 @@
 
 //  'Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'  
 
+const firstPart = document.createElement('p'),
+  secondPart = document.createElement('p');
+
 const nowDate = function () {
 
 const today = new Date(),
@@ -24,7 +27,7 @@ const signatureHour = function(currentHour) {
 let message = ('Сегодня ' + currentDayWeek + ", " + currentDay +
  " " + currentMonth + " " +  currentYear +' года, ' + currentHour +
   ' ' + signatureHour(currentHour) + ' ' + currentMinute + ' минут ' + currentSecond + " секунды");
-document.write(message );
+  firstPart.textContent = (message);
 
 
 const date = new Date(),
@@ -47,17 +50,14 @@ for (let key in newDate) {
   }
 }
 
-document.write(newDate.currentDateDay + '.' +
+  secondPart.textContent = (newDate.currentDateDay + '.' +
   newDate.currentDateMonth  + '.' + newDate.currentDateYear +
    ' - ' + newDate.currentDateHour + ':' + newDate.currentDateMinute + ':' +  newDate.currentDateSecond);
 };
 
-
-
-
-let displayText = document.createElement("p");
-document.body.appendChild(displayText);
-
-displayText.textContent = setInterval(function() {
+setInterval(function() {
   nowDate();
 }, 1000);
+
+document.body.appendChild(firstPart);
+document.body.appendChild(secondPart);
